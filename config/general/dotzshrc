@@ -75,6 +75,8 @@ plugins=(git
 	)
 
 source $ZSH/oh-my-zsh.sh
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff"
 
 # User configuration
 
@@ -148,6 +150,7 @@ export PYBIND11="/etc/envs/py_env/envs/py_calc/lib/python3.8/site-packages/pybin
 # Python setting
 export HOMEREPO="$HOME/JoshuaTree"
 export PYTHONPATH="$HOMEREPO/python/"
+export PYTHONPATH="${PYTHONPATH}:$HOME/ws/repo/Talinity/utils"
 
 # # ex - archive extractor
 # # usage: ex <file>
