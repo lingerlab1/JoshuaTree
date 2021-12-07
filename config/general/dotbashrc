@@ -45,13 +45,23 @@ ex ()
 }
 alias running_services='systemctl list-units  --type=service  --state=running'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 grid()
 {
 	csvlook -I -y0 $1 | less -S
 }
-[[ -f $HOME/.fzf.bash ]] && . $HOME/.fzf.bash
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == $HOME/.config/nvim/autoload/plugged/fzf/bin* ]]; then
+	export PATH="${PATH}:$HOME/.config/nvim/autoload/plugged/fzf/bin"
+	# Auto-completion
+	[[ $- == *i* ]] && source "$HOME/.config/nvim/autoload/plugged/fzf/shell/completion.bash" 2> /dev/null
+	# Key bindings
+	source "$HOME/.config/nvim/autoload/plugged/fzf/shell/key-bindings.bash"
+fi
+
+
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
 alias cp="cp -i"                          # confirm before overwriting something
@@ -65,20 +75,7 @@ alias vim=nvim
 alias cat=bat
 
 
-# >>> conda initialize >>>
- #!! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/etc/envs/py_env/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-	eval "$__conda_setup"
-else
-	if [ -f "/etc/envs/py_env/etc/profile.d/conda.sh" ]; then
-		. "/etc/envs/py_env/etc/profile.d/conda.sh"
-	else
-		export PATH="/etc/envs/py_env/bin:$PATH"
-	fi
-fi
-unset __conda_setup
-conda activate py_calc
+#conda activate py_calc
 
 alias ipy_start="nohup jupyter notebook --ip 0.0.0.0 --port 9999 --no-browser &"
 # <<< conda initialize <<<
@@ -96,3 +93,19 @@ export PYBIND11="/etc/envs/py_env/envs/py_calc/lib/python3.8/site-packages/pybin
 export HOMEREPO="$HOME/JoshuaTree"
 export PYTHONPATH="$HOMEREPO/python/"
 export PYTHONPATH="${PYTHONPATH}:$HOME/ws/repo/Talinity/utils"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/env/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+	eval "$__conda_setup"
+else
+	if [ -f "/opt/env/miniconda/etc/profile.d/conda.sh" ]; then
+		. "/opt/env/miniconda/etc/profile.d/conda.sh"
+	else
+		export PATH="/opt/env/miniconda/bin:$PATH"
+	fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+conda activate pycalc
