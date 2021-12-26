@@ -188,7 +188,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd' }
+local servers = { 'pyright', 'clangd' , 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -218,16 +218,15 @@ require'nvim-treesitter.configs'.setup {
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    theme = 'auto',
+    component_separators = { left = '▷', right = '◁'},
+    section_separators = { left = '▶', right = '◀'},
     disabled_filetypes = {},
     always_divide_middle = true,
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff',
-                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
@@ -243,6 +242,5 @@ require'lualine'.setup {
   },
   tabline = {},
   extensions = {}
-  }
-
+}
 EOF
