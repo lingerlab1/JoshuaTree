@@ -88,11 +88,16 @@ export CC=gcc
 export CXX=g++
 export EIGENROOT="$HOME/.local/repo/eigen"
 export PYBIND11="/etc/envs/py_env/envs/py_calc/lib/python3.8/site-packages/pybind11/include"
+export LLVM_ROOT="$HOME/.local/repo/llvm-project"
 
 # Python setting
 export HOMEREPO="$HOME/JoshuaTree"
 export PYTHONPATH="$HOMEREPO/python/"
 export PYTHONPATH="${PYTHONPATH}:$HOME/ws/repo/Talinity/utils"
+export TERM=xterm-256color
+
+# npm local package
+[ -d "$HOME/node_modules/.bin" ] && export PATH="$HOME/node_modules/.bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
