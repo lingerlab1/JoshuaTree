@@ -37,6 +37,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Tree-sitter
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
+	" Bufferline Trial
+	Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+	" Plug 'ryanoasis/vim-devicons' Icons without colours
+	Plug 'akinsho/bufferline.nvim'
+
 call plug#end()
 
 
@@ -49,6 +54,8 @@ set nowrap
 set tabstop=4
 set shiftwidth=4
 set ignorecase
+
+set mouse=a
 
 " let g:vim_monokai_tasty_italic = 1
 colorscheme gruvbox
@@ -76,7 +83,7 @@ nnoremap <silent> <leader><space> :nohlsearch<CR>
 " Terminal Operation
 tnoremap <leader>q <c-\><c-n><cr>
 
-" Auto format
+" Auto format Deprecated as LSP using [space]-f
 nnoremap <F3> :Autoformat<cr>
 
 " Spell check and quick fix
@@ -88,6 +95,12 @@ nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" Bufferline for navigating buffers
+" " These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <silent>]b :BufferLineCycleNext<CR>
+nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
 " Floatterm
 nnoremap <silent> <leader>t :FloatermNew<CR>
@@ -248,4 +261,7 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
+
+-- Bufferline
+require('bufferline').setup { }
 EOF
