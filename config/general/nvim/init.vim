@@ -77,6 +77,9 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>s :Rg<CR>
 
+" Open Fugitive 
+nnoremap <silent> <leader>g :G<CR>
+
 " Ranger
 nnoremap <silent> <leader>f :RnvimrToggle<CR>
 
