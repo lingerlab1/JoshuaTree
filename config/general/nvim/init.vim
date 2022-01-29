@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+	Plug 'stsewd/fzf-checkout.vim'
 
 	" color schemas
 	Plug 'morhetz/gruvbox'  " colorscheme gruvbox
@@ -73,7 +74,7 @@ let g:rnvimr_ex_enable = 1
 
 "" Keybindings
 " FZF find and Rg
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>b :GBranches<CR>
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>s :Rg<CR>
 
@@ -109,7 +110,6 @@ nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
 " Floatterm
-nnoremap <silent> <leader>t :FloatermNew<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
