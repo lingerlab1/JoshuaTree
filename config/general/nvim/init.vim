@@ -74,7 +74,7 @@ let g:rnvimr_ex_enable = 1
 
 "" Keybindings
 " FZF find and Rg
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>b :GBranches<CR>
 nnoremap <silent> <leader>o :Files<CR>
 nnoremap <silent> <leader>s :Rg<CR>
 
