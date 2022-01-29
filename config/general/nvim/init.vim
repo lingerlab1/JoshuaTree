@@ -26,8 +26,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" lua line
 	Plug 'nvim-lualine/lualine.nvim'
-	" If you want to have icons in your statusline choose one of these
-	Plug 'kyazdani42/nvim-web-devicons'
 
 	" Ranger
 	Plug 'kevinhwang91/rnvimr'
