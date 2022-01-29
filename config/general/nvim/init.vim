@@ -39,8 +39,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" Bufferline Trial
 	Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-	" Plug 'ryanoasis/vim-devicons' Icons without colours
 	Plug 'akinsho/bufferline.nvim'
+
+	" Vim-fugitive, a great GIT tool
+	Plug 'tpope/vim-fugitive'
+
 
 call plug#end()
 
@@ -57,12 +60,12 @@ set ignorecase
 
 set mouse=a
 
-" let g:vim_monokai_tasty_italic = 1
-colorscheme gruvbox
-
 if (has('termguicolors'))
   set termguicolors
 endif
+
+" let g:vim_monokai_tasty_italic = 1
+colorscheme gruvbox
 
 " Make Ranger replace netrw
 let g:rnvimr_ex_enable = 1
