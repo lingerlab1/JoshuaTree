@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+	Plug 'stsewd/fzf-checkout.vim'
 
 	" color schemas
 	Plug 'morhetz/gruvbox'  " colorscheme gruvbox
