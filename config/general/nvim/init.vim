@@ -110,7 +110,6 @@ nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
 " Floatterm
-nnoremap <silent> <leader>t :FloatermNew<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
