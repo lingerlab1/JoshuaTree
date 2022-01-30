@@ -46,7 +46,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
-
 "" General Settings
 
 " Line number with relative number
@@ -62,6 +61,34 @@ set mouse=a
 if (has('termguicolors'))
   set termguicolors
 endif
+
+"make sure you have xclip or xsel installed in your Linux
+set clipboard+=unnamedplus
+let g:clipboard = {
+  \   'name': 'xclip-clipboard',
+  \   'copy': {
+  \      '+': 'xclip -selection clipboard',
+  \      '*': 'xclip -selection clipboard',
+  \    },
+  \   'paste': {
+  \      '+': 'xclip -selection clipboard -o',
+  \      '*': 'xclip -selection clipboard -o',
+  \   },
+  \   'cache_enabled': 1,
+  \ }
+"let g:clipboard = {
+	"\ 'name': 'xsel',
+	"\ 'copy': {
+	"\     '+': 'xsel -ib',
+	"\     '*': 'xsel -ip'
+	"\ },
+	"\ 'paste': {
+	"\     '+': 'xsel -ob',
+	"\     '*': 'xsel -op'
+	"\ },
+	"\ 'cache_enabled': 1
+	"\ }
+
 
 " let g:vim_monokai_tasty_italic = 1
 colorscheme gruvbox
