@@ -113,7 +113,9 @@ nnoremap <silent> <leader>f :RnvimrToggle<CR>
 " Turn off highlight
 nnoremap <silent> <leader><space> :nohlsearch<CR>
 
-" Auto format Deprecated as LSP using [space]-f
+" Auto format using installed formatter.
+" Python using autopep8 or yapf. Rust using rustfmt.
+" C/C++ using clangfmt
 nnoremap <F3> :Autoformat<cr>
 
 " Spell check and quick fix
@@ -127,7 +129,7 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Bufferline for navigating buffers
-" " These commands will navigate through buffers in order regardless of which mode you are using
+" These commands will navigate through buffers in order regardless of which mode you are using
 " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
 nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
@@ -136,6 +138,7 @@ nnoremap <silent>[b :BufferLineCyclePrev<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
+" The following code is in lua till the end
 lua << EOF
 -- Add additional capabilities supported by nvim-cmp
 local nvim_lsp = require('lspconfig')
