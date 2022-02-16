@@ -76,6 +76,8 @@ let g:clipboard = {
   \   },
   \   'cache_enabled': 1,
   \ }
+
+"" If use xsel. the setup is following
 "let g:clipboard = {
 	"\ 'name': 'xsel',
 	"\ 'copy': {
@@ -89,8 +91,6 @@ let g:clipboard = {
 	"\ 'cache_enabled': 1
 	"\ }
 
-
-" let g:vim_monokai_tasty_italic = 1
 colorscheme gruvbox
 
 " Make Ranger replace netrw
