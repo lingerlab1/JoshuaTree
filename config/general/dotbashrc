@@ -43,7 +43,9 @@ ex ()
 		echo "'$1' is not a valid file"
 	fi
 }
+
 alias running_services='systemctl list-units  --type=service  --state=running'
+alias open_port='sudo lsof -i -P -n | grep LISTEN'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 grid()
