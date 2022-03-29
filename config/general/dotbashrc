@@ -47,6 +47,7 @@ ex ()
 alias running_services='systemctl list-units  --type=service  --state=running'
 alias open_port='sudo lsof -i -P -n | grep LISTEN'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias slides="jupyter nbconvert --to slides  --ServePostProcessor.port=8910 --ServePostProcessor.ip='*' --ServePostProcessor.open_in_browser=False --post serve"
 
 grid()
 {
