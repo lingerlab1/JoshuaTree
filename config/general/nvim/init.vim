@@ -43,6 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Vim-fugitive, a great GIT tool
 	Plug 'tpope/vim-fugitive'
 
+	" vim-fireplace
+	Plug 'tpope/vim-fireplace'
+
 
 call plug#end()
 
@@ -63,19 +66,19 @@ if (has('termguicolors'))
 endif
 
 "make sure you have xclip or xsel installed in your Linux
-set clipboard+=unnamedplus
-let g:clipboard = {
-  \   'name': 'xclip-clipboard',
-  \   'copy': {
-  \      '+': 'xclip -selection clipboard',
-  \      '*': 'xclip -selection clipboard',
-  \    },
-  \   'paste': {
-  \      '+': 'xclip -selection clipboard -o',
-  \      '*': 'xclip -selection clipboard -o',
-  \   },
-  \   'cache_enabled': 1,
-  \ }
+"set clipboard+=unnamedplus
+"let g:clipboard = {
+  "\   'name': 'xclip-clipboard',
+  "\   'copy': {
+  "\      '+': 'xclip -selection clipboard',
+  "\      '*': 'xclip -selection clipboard',
+  "\    },
+  "\   'paste': {
+  "\      '+': 'xclip -selection clipboard -o',
+  "\      '*': 'xclip -selection clipboard -o',
+  "\   },
+  "\   'cache_enabled': 1,
+  "\ }
 
 "" If use xsel. the setup is following
 "let g:clipboard = {
@@ -230,7 +233,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd' , 'rust_analyzer'}
+local servers = { 'pyright', 'clangd' , 'rust_analyzer', 'clojure_lsp'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -243,7 +246,7 @@ end
 
 -- Tree-sitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = {"python", "rust", "clojure", "c"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
